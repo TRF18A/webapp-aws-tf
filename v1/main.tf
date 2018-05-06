@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_instance" "web1" {
   ami           = "${var.ami}"
   instance_type = "${var.instance_type}"
-  key_name = "KEYPAIR1"
+  key_name = "${var.keypair}"
   vpc_security_group_ids = ["${aws_security_group.web_sg.id}"]
   subnet_id              = "${aws_subnet.web_subnet_1.id}"
   associate_public_ip_address = true
