@@ -2,7 +2,7 @@ variable "access_key" {}
 variable "secret_key" {}
 
 variable "keypair" {}
-variable "ami"{}
+variable "ami" {}
 variable "instance_type" {}
 
 variable "az_1" {}
