@@ -8,14 +8,23 @@ Terraform template to create infra for Web Application hosting in the AWS Cloud
 4. A dummy php web application is used for demonstration purposes; the focus is on use of Terraform. 
 ![Diagram](https://trf18a.github.io/TerraformArch.jpg "Diagram")
 
-## Components
-
-
-
+### Components
+1. Load Balancer - Classic ELB is used to send requests to web/sapp servers in cross-AZ mode in Round Robin fashion.
+2. EC2 - Used to host the web/app server. One in each AZ.
+3. MySQL RDS - Database as a service, deployed in Multi-AZ (HA) mode. 
+4. Security Groups - Instance level stateful firewall used to restrict access by protocol, origin/destination and port. In this setup, the web security group allows connections on port 80 only from the ELB security group. The RDS security group allows MySQL TCP connections only from the web security group.
 
 ## How to apply
-
-
+1. Clone https://github.com/TRF18A/webapp-aws-tf.git
+2. Edit the variables in terraform.tfvars as needed. The access key and security kay, as well as the keypair name must be provided. Other variables have default values that may be overriden. Database id and password may be changed to appropriate values.
+3. Install terraform and apply.
+4. Note the database_hostname and elb_dns_name output variables 
+5. During EC2 instance creation php will be installed some sample php pages will be copied in to test connectivity to the database.
+6. Point browser to the url of the load balancer (i.e. elb_dns_name). A pages with a link to the "sayHello" page should appear. Pressing refresh should change the displayed server ip address.  
+7. ssh into the both the EC2 web instances and edit the sayHello.php file. Change the database hostname to the value output as database_hostname. Also change the database id and password in line with what was provided in the Terraform script. 
+8. Clicking on the "sayHello" link should result in a hello message displayed, as well as the database connectivity status displayed.
 
 ## Notes
-
+1. The php sample pages are for demo only. In production a more appropriate stack may be deployed, e.g using Spring Boot.
+2. The service discovery steps (i.e. application obtaining the RDS endpoint) should be automated, perhaps using DNS or Hashicorp Consul etc.
+3. Autoscaling group may be used to scale and automatically maintain the target number of running instances.
