@@ -30,3 +30,4 @@ Terraform template to create infra for Web Application hosting in the AWS Cloud
 2. The service discovery steps (i.e. application obtaining the RDS endpoint) should be automated, perhaps using DNS or Hashicorp Consul etc.
 3. Autoscaling group may be used to scale and automatically maintain the target number of running instances.
 4. The scripts define segregated subnets but do not define any subnet NACLs. Subnet level NACLs may be used to further tighten security and act as a safeguard against misconfigured Security Groups.
+5. The script can be changed to make port numbers configurable and to permit HTTPS traffic.  
