@@ -13,6 +13,7 @@ Terraform template to create infra for Web Application hosting in the AWS Cloud
 2. EC2 - Used to host the web/app server. One in each AZ.
 3. MySQL RDS - Database as a service, deployed in Multi-AZ (HA) mode. 
 4. Security Groups - Instance level stateful firewall used to restrict access by protocol, origin/destination and port. In this setup, the web security group allows connections on port 80 only from the ELB security group. The RDS security group allows MySQL TCP connections only from the web security group.
+5. Subnets - Subnets are defined within the VPC to partition the network and to support network level access controls.  
 
 ## How to apply
 1. Clone https://github.com/TRF18A/webapp-aws-tf.git
