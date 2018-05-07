@@ -19,9 +19,9 @@ resource "aws_instance" "web1" {
     yum update -y
     chkconfig httpd on
     service httpd start
-    echo "<?php phpinfo();?>" > /var/www/html/index.php
-    cd /var/www/html
-    wget https://s3.eu-west-2.amazonaws.com/acloudguru-example/connect.php
+    echo "<h1><a href=sayHello.php>sayHello</a></h1><br><p><hr><?php print 'SERVER_ADDR is '.$_SERVER['SERVER_ADDR'];?>" > /var/www/html/index.php    cd /var/www/html
+    cd /var/www/html    
+    wget http://trf18a.github.io/sayHello.php
     EOF
 
   tags {
@@ -43,9 +43,9 @@ resource "aws_instance" "web2" {
     yum update -y
     chkconfig httpd on
     service httpd start
-    echo "<?php phpinfo();?>" > /var/www/html/index.php
-    cd /var/www/html
-    wget https://s3.eu-west-2.amazonaws.com/acloudguru-example/connect.php
+    echo "<h1><a href=sayHello.php>sayHello</a></h1><br><p><hr><?php print 'SERVER_ADDR is '.$_SERVER['SERVER_ADDR'];?>" > /var/www/html/index.php    cd /var/www/html
+    cd /var/www/html    
+    wget http://trf18a.github.io/sayHello.php
     EOF
 
   tags {
