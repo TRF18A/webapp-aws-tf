@@ -19,8 +19,8 @@ resource "aws_instance" "web1" {
     yum update -y
     chkconfig httpd on
     service httpd start
-    echo "<h1><a href=sayHello.php>sayHello</a></h1><br><p><hr><?php print 'SERVER_ADDR is '.$_SERVER['SERVER_ADDR'];?>" > /var/www/html/index.php    cd /var/www/html
-    cd /var/www/html    
+    cd /var/www/html
+    wget http://trf18a.github.io/index.php
     wget http://trf18a.github.io/sayHello.php
     EOF
 
@@ -43,8 +43,8 @@ resource "aws_instance" "web2" {
     yum update -y
     chkconfig httpd on
     service httpd start
-    echo "<h1><a href=sayHello.php>sayHello</a></h1><br><p><hr><?php print 'SERVER_ADDR is '.$_SERVER['SERVER_ADDR'];?>" > /var/www/html/index.php    cd /var/www/html
-    cd /var/www/html    
+    cd /var/www/html
+    wget http://trf18a.github.io/index.php
     wget http://trf18a.github.io/sayHello.php
     EOF
 
