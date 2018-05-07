@@ -7,7 +7,9 @@ Terraform template to create infra for Web Application hosting in the AWS Cloud
 3. A **High Availability (HA)** infrastructure is created, able to withstand loss of a web/app server and/or database server. Alternately it is able to withstand the loss of an Availability Zone (AZ).
 4. A dummy php web application is used for demonstration purposes; the focus is on use of Terraform. 
 5. Diagram below illustrates the Architecture
-!(https://trf18a.github.io/TerraformArch.jpg)
+![Diagram](https://trf18a.github.io/TerraformArch.jpg "Diagram")
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 ## Components
 
